@@ -1,0 +1,36 @@
+#################################################################################################
+# Disclaimer:
+# Learning to battle with the necessary evil of software installations 
+# is an essential skill in computational research. This guide will help you
+# but someone somewhere will always have some incompatible version of something.
+# You must get used to googling around for answers (not chatGPT-ing it).
+# If you have issues, the answer to most problems is "google it". 
+#################################################################################################
+
+# This was done using anaconda prompt for windows. 
+# To access, first ensure you have an anaconda installation. (add extra instructions here).
+# Go to your windows search bar and type anaconda and you should see
+# "Anaconda Prompt (Anaconda3)" as an App option to open.
+# This is basically a powershell/command line but anaconda's inhouse version
+
+# First create a new environment, or activate an existing one if you want.
+conda create -n dmlworkshop (Create a brand new environment)
+conda activate dmlworkshop 
+
+# Now to install the packages
+conda install anaconda::pip
+conda install anaconda::jupyter
+conda install anaconda::numpy
+conda install conda-forge::matplotlib
+conda install anaconda::ipywidgets
+conda install conda-forge::ipympl
+conda install anaconda::scipy
+
+# The only one that is tricky is PyTorch, best done using what they recommend:
+# https://pytorch.org/get-started/locally/
+
+# for windows anaconda distribution do:
+pip3 install torch torchvision torchaudio
+
+# if conda install anaconda::XXXXX doesn't work (stuck on solving, etc)
+# first try conda install XXXXX and then try conda install conda-forge::XXXX

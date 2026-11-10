@@ -1,0 +1,38 @@
+#################################################################################################
+# Disclaimer:
+# Learning to battle with the necessary evil of software installations 
+# is an essential skill in computational research. This guide will help you
+# but someone somewhere will always have some incompatible version of something.
+# You must get used to googling around for answers (not chatGPT-ing it).
+# If you have issues, the answer to most problems is "google it". 
+################################################################################################
+
+# These instructions were put together for macOS. 
+# First ensure you have an anaconda installation.
+# On a Mac, open a Terminal (Applications>Utilities) or if you are using VSCode,
+# open a New Terminal from the Terminal menu (shortcut: ctrl-shift-`). You 
+# can tell if conda is correctly set up, as you will see "(base)" or some other
+# environment name next to the command prompt.
+
+# First create a new environment, or activate an existing one if you want.
+conda create -n dmlworkshop (Create a brand new environment)
+conda activate dmlworkshop 
+
+# Now to install the packages
+conda install anaconda::pip
+conda install jupyter
+# or conda install conda-forge::jupyter
+conda install anaconda::numpy
+conda install conda-forge::matplotlib
+conda install anaconda::ipywidgets
+conda install conda-forge::ipympl
+conda install anaconda::scipy
+
+# The only one that is tricky is PyTorch, best done using what they recommend:
+# https://pytorch.org/get-started/locally/
+
+# for mac or windows anaconda distribution do:
+pip3 install torch torchvision torchaudio
+
+# if conda install anaconda::XXXXX doesn't work (stuck on solving, etc)
+# first try conda install XXXXX and then try conda install conda-forge::XXXX
