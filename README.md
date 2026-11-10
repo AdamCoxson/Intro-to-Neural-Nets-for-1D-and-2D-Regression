@@ -6,7 +6,7 @@ The workshop starts with fitting a one-dimensional function, extends the same id
 
 ## What you will learn
 
-- Build feedforward neural networks, from one hidden layer to a configurable multi-layer perceptron (MLP).
+- Build feed-forward neural networks, from one hidden layer to a configurable multi-layer perceptron (MLP).
 - Generate training data, normalise inputs and targets, and prepare PyTorch data loaders.
 - Train with mean squared error loss and the AdamW optimiser.
 - Evaluate predictions and investigate learning rate, batch size, network size, activation functions and training duration.
@@ -14,7 +14,7 @@ The workshop starts with fitting a one-dimensional function, extends the same id
 
 Here, **1D** means one input feature, `x → y`, and **2D** means two input features, `(x, y) → z`. Both tasks predict a scalar output.
 
-Some familiarity with Python and NumPy will help. The examples use the CPU; a GPU is not required. The regression data are generated in the code, so no external dataset is needed for the two notebooks.
+Some familiarity with Python and NumPy will help. The examples use the CPU; a GPU is not required. The regression data are generated in the code, so no external dataset is needed for the two initial notebooks.
 
 ## Repository contents
 
@@ -27,12 +27,9 @@ Some familiarity with Python and NumPy will help. The examples use the CPU; a GP
 | [Chemistry assignment starter](workshop/dml_submission.py) | Data-loading framework for the molecular prediction task. Requires separately supplied data and further implementation. |
 
 ## Installation
-
-These instructions follow [`workshop/install.txt`](workshop/install.txt) for Windows and [`workshop/install_mac.txt`](workshop/install_mac.txt) for macOS. They combine the scientific packages into one Conda command and add `scikit-learn`, which is imported by the shared helper module but missing from the original lists.
-
 ### 1. Get the files and open a terminal
 
-Download this repository using **Code → Download ZIP**, then extract it. Alternatively, with Git installed:
+Download and extract this repository. Alternatively, with Git installed:
 
 ```bash
 git clone https://github.com/AdamCoxson/Intro-to-Neural-Nets-for-1D-and-2D-Regression.git
@@ -47,33 +44,16 @@ Install [Anaconda](https://www.anaconda.com/download) if you do not already have
 ### 2. Create and activate the environment
 
 ```bash
-conda create -n dmlworkshop python=3.11
+conda create -n ml_workshop python=3.11
 conda activate dmlworkshop
 conda install -c conda-forge pip jupyter numpy matplotlib ipywidgets ipympl scipy scikit-learn ipykernel
 ```
 
-Python 3.11 matches the major/minor version recorded in the 1D notebook. Package versions are not pinned in this repository, so this is a setup starting point rather than a locked reproduction of the original environment.
-
-The original install files use individual commands such as `conda install anaconda::numpy` and `conda install conda-forge::ipympl`. The command above uses one channel for the scientific packages. Type commands individually; the parenthesised explanation after `conda create` in the original text files is prose, not part of the command.
-
 ### 3. Install PyTorch
 
-Both original guides give:
+For an installation suited to your operating system and hardware, use the [official PyTorch installation selector](https://pytorch.org/get-started/locally/). Select **Stable**, your operating system, **Pip** and **Python**; choose **CPU** on Windows/Linux for these exercises. On macOS, follow the Mac installation option. Run its command inside `ml_workshop`.
 
-```bash
-python -m pip install torch torchvision torchaudio
-```
-
-Using `python -m pip` installs into the active Python environment. The workshop code uses `torch`; `torchvision` and `torchaudio` are included in the original guides but are not used by these exercises.
-
-For an installation suited to your operating system and hardware, use the [official PyTorch installation selector](https://pytorch.org/get-started/locally/). Select **Stable**, your operating system, **Pip** and **Python**; choose **CPU** on Windows/Linux for these exercises. On macOS, follow the Mac installation option. Run its command inside `dmlworkshop`.
-
-### 4. Register the notebook kernel and check the installation
-
-```bash
-python -m ipykernel install --user --name dmlworkshop --display-name "Python (dmlworkshop)"
-python -c "import torch, numpy, scipy, sklearn, matplotlib, ipywidgets, ipympl; print('Workshop imports OK'); print('PyTorch:', torch.__version__)"
-```
+### 4. Additional packages
 
 For the chemistry assignment, also install Pandas. RDKit is needed if you use the molecular descriptor helpers in `rdkit_functions.py`:
 
